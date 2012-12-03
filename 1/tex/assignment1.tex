@@ -10,6 +10,43 @@
 \maketitle
 \section{Exercises}
 \subsection{Question 1, Fundamental abstractions}
+\subsubsection{Model for implementing shared address space}
+One could model an address in the shared address space as a 2-tuple of two
+elements; the address or identifier of a machine, and the address on the given
+machine. This is highly scalable, as each component is separated and each of
+the two addresses can be interpreted independently. With suitable encoding,
+no limitation is needed on the size of either the machine address or memory
+address.
+
+This model requires a naming service to determine what address each machine
+has. This address could, for instance, be an IP address.
+
+\subsubsection{Pseudocode for implementation of READ/WRITE}
+
+\begin{verbatim}
+def READ((machineaddr, dataaddr)):
+    machine = connect(machineaddr)
+    data = machine.read(dataaddr)
+    machine.disconnect()
+
+    return data
+\end{verbatim}
+
+\begin{verbatim}
+def WRITE((machineaddr, dataaddr), data):
+    machine = connect(machineaddr)
+    machine.write(dataaddr, data)
+    machine.disconnect()
+\end{verbatim}
+
+Here, \texttt{connect} is a function that produces a connection object to
+communicate with the given machine, and said object has a \texttt{read} and
+\texttt{write} method that works locally on that machine.
+Pattern matching is used to extract the parts of the address from the full
+address (tuple).
+
+\subsubsection{Are READ/WRITE against memory atomic?}
+% TODO
 
 \subsection{Question 2, Hardware trends}
 
