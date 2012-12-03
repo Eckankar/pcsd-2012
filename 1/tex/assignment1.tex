@@ -56,9 +56,33 @@ to be in the cache. By this virtue, caching will often improve the common case
 and is therefore an example of fast path optimization.
 
 \subsection{Question 4, Experimental design}
+\subsubsection{How to test bandwidth in case of only cache hits}
+\begin{itemize}
+    \item Allocate a small piece of memory. (For instance the size of a page)
+    \item Initialize the memory to all 0s. It should now be cached.
+    \item Start timing.
+    \item Iterate through each byte in the memory n times, incrementing each byte
+          and saving it back. This should all hit cache.
+    \item Stop timing.
+\end{itemize}
 
-Bla how to ensure cache hits / cache misses?
+Simple math can now be performed based on the size of the block of memory and
+the time taken, in order to figure out the bandwidth achieved.
 
+\subsubsection{How to test bandwidth in case of only cache misses}
+\begin{itemize}
+    \item Allocate a large piece of memory, at least twice the size of the cache.
+    \item Initialize the memory to all 0s. A reasonable cache would now have the last part of the memory allocated cached. 
+    \item Start timing.
+    \item Iterate through the memory n times, accessing only the first byte
+          of each page. Since memory is cached in pages, each access should be
+          unaffected by the one before it. The size of the allocated memory should
+          ensure that by the time a page is accessed, it isn't cached.
+    \item Stop timing.
+\end{itemize}
+
+The same math can be performed as in the first experiment to determine the
+bandwidth achieved.
 
 \end{document}
 
