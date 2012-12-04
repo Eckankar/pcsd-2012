@@ -46,7 +46,19 @@ Pattern matching is used to extract the parts of the address from the full
 address (tuple).
 
 \subsubsection{Are READ/WRITE against memory atomic?}
-% TODO
+On most architectures, reads and writes of a word size is atomic. Larger 
+reads/writes tends to be conducted in software through smaller writes,
+without explicit hardware support for atomic large transfer of data.
+
+Most commonly, a write would be expected to be atomic by the programmer using
+the service. As such, implementing atomicity would most likely be desired, since
+partially written data in many contexts would be considered corrupt.
+
+Atomicity could be achieved using one of the locking mechanisms mentioned
+in the lectures. Locking could be done on a per-machine basis, or the
+memory space of each machine could be split into regions, for which locks
+must be held to perform operations. This could be further expanded to use
+shared/exclusive locks and so on.
 
 \subsection{Question 2, Hardware trends}
 
