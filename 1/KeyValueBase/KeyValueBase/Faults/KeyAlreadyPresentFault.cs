@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using KeyValueBase.Interfaces;
+using System.ServiceModel;
 
 namespace KeyValueBase.Faults {
     [DataContract]
@@ -28,5 +29,12 @@ namespace KeyValueBase.Faults {
         public string Message {
             get { return this.message; }
         }
+    }
+
+    public class KeyAlreadyPresentException<K> : FaultException<KeyAlreadyPresentFault<K>> where K : IKey<K> {
+        public KeyAlreadyPresentException(K key)
+            : base(new KeyAlreadyPresentFault<K>(key)) { }
+        public KeyAlreadyPresentException(K key, string message)
+            : base(new KeyAlreadyPresentFault<K>(key, message)) { }
     }
 }

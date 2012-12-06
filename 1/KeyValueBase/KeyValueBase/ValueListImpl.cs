@@ -4,39 +4,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using KeyValueBase.Interfaces;
+using System.Runtime.Serialization;
 
 namespace KeyValueBase {
+    [DataContract]
     public class ValueListImpl : IValueList<ValueImpl> {
-        private List<ValueImpl> list;
+        [DataMember]
+        public List<ValueImpl> List { get; private set; }
 
         public ValueListImpl() {
-            list = new List<ValueImpl>();
+            List = new List<ValueImpl>();
         }
 
         public ValueListImpl(IEnumerable<ValueImpl> values) {
-            list = new List<ValueImpl>(values);
+            List = new List<ValueImpl>(values);
         }
 
         public void Add(ValueImpl item) {
-            lock (list) {
-                list.Add(item);
+            lock (List) {
+                List.Add(item);
             }
         }
 
         public void Remove(ValueImpl item) {
-            lock (list) {
-                list.Remove(item);
+            lock (List) {
+                List.Remove(item);
             }
         }
 
         public void Merge(IValueList<ValueImpl> other) {
-            lock (list) {
-                list.AddRange(other);
+            lock (List) {
+                List.AddRange(other);
             }
         }
 
         public IList<ValueImpl> ToList() {
-            return list;
+            return List;
         }
 
         // Not thread safe yet.
@@ -47,11 +50,11 @@ namespace KeyValueBase {
         }
 
         public IEnumerator<ValueImpl> GetEnumerator() {
-            return list.GetEnumerator();
+            return List.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator() {
-            return list.GetEnumerator();
+            return List.GetEnumerator();
         }
     }
 }

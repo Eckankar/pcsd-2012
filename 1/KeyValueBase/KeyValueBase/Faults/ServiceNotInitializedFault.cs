@@ -1,26 +1,27 @@
 ﻿using System.Runtime.Serialization;
+using System.ServiceModel;
 
-namespace KeyValueBase.Faults
-{
-  [DataContract]
-  public class ServiceNotInitializedFault
-  {
-    [DataMember(Name = "Message")]
-    private string message;
+namespace KeyValueBase.Faults {
+    [DataContract]
+    public class ServiceNotInitializedFault {
+        [DataMember(Name = "Message")]
+        private string message;
 
-    public ServiceNotInitializedFault()
-      : this("Service is not initialized yet")
-    {
+        public ServiceNotInitializedFault()
+            : this("Service is not initialized yet") {
+        }
+
+        public ServiceNotInitializedFault(string message) {
+            this.message = message;
+        }
+
+        public string Message {
+            get { return this.message; }
+        }
     }
 
-    public ServiceNotInitializedFault(string message)
-    {
-      this.message = message;
+    public class ServiceNotInitializedException : FaultException<ServiceNotInitializedFault> {
+        public ServiceNotInitializedException() : base(new ServiceNotInitializedFault()) { }
+        public ServiceNotInitializedException(string message) : base(new ServiceNotInitializedFault(message)) { }
     }
-
-    public string Message
-    {
-      get { return this.message; }
-    }
-  }
 }

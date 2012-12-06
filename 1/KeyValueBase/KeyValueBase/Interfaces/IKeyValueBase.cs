@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using KeyValueBase.Faults;
 
 namespace KeyValueBase.Interfaces
 {
@@ -17,6 +18,8 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="ServiceInitializingException">If the service is in process of initializing</exception>
     /// <exception cref="FileNotFoundException">If the provided file is not found</exception>
     [OperationContract]
+    [FaultContract(typeof(ServiceAlreadyInitializedFault))]
+    [FaultContract(typeof(ServiceInitializingFault))]
     void Init(string serverFilename);
 
     /// <summary>
@@ -28,6 +31,8 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="IOException">If an I/O error occurs</exception>
     /// <returns>a value</returns>
     [OperationContract]
+    //[FaultContract(typeof(KeyNotFoundFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
     V Read(K key);
 
     /// <summary>
@@ -39,6 +44,8 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="ServiceNotInitializedException">If the service is not initialized</exception>
     /// <exception cref="IOException">If an I/O error occurs</exception>
     [OperationContract]
+    //[FaultContract(typeof(KeyAlreadyPresentFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
     void Insert(K key, V value);
 
     /// <summary>
@@ -50,6 +57,8 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="ServiceNotInitializedException">If the service is not initialized</exception>
     /// <exception cref="IOException">If an I/O error occurs</exception>
     [OperationContract]
+    //[FaultContract(typeof(KeyNotFoundFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
     void Update(K key, V newValue);
 
     /// <summary>
@@ -59,6 +68,8 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="KeyNotFoundException">If the requested key is not present</exception>
     /// <exception cref="ServiceNotInitializedException">If the service is not initialized</exception>
     [OperationContract]
+    //[FaultContract(typeof(KeyNotFoundFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
     void Delete(K key);
 
     /// <summary>
@@ -74,6 +85,9 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="BeginGreaterThanEndException">If the end key is less than the start key</exception>
     /// <returns>a list of value</returns>
     [OperationContract]
+    //[FaultContract(typeof(KeyNotFoundFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
+    //[FaultContract(typeof(BeginGreaterThanEndFault<K>))]
     IEnumerable<V> Scan(K begin, K end, IPredicate<V> predicate);
 
     /// <summary>
@@ -89,6 +103,9 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="BeginGreaterThanEndException">If the end key is less than the start key</exception>
     /// <returns>a list of value</returns>
     [OperationContract]
+    //[FaultContract(typeof(KeyNotFoundFault<K>))]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
+    //[FaultContract(typeof(BeginGreaterThanEndFault<K>))]
     IEnumerable<V> AtomicScan(K begin, K end, IPredicate<V> predicate);
 
     /// <summary>
@@ -98,6 +115,7 @@ namespace KeyValueBase.Interfaces
     /// <exception cref="ServiceNotInitializedException">If the service is not initialized</exception>
     /// <exception cref="IOException">If an I/O error occurs</exception>
     [OperationContract]
+    [FaultContract(typeof(ServiceNotInitializedFault))]
     void BulkPut(IEnumerable<KeyValuePair<K, V>> pairs);
   }
 }

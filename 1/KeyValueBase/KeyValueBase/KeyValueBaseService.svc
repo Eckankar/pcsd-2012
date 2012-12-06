@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="KeyValueBase.KeyValueBaseService" CodeBehind="KeyValueBaseService.svc.cs" %>
