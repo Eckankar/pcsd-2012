@@ -7,7 +7,7 @@ using KeyValueBaseClient.KeyValueBaseReference;
 namespace KeyValueBaseClient {
     internal class Program {
         public static void Main(string[] args) {
-            KeyValueBaseOf_KeyImpl_ValueListImplClient client = new KeyValueBaseOf_KeyImpl_ValueListImplClient();
+            KeyValueBaseServiceClient client = new KeyValueBaseServiceClient();
 
             while (true) {
                 try {
@@ -20,6 +20,9 @@ namespace KeyValueBaseClient {
                     string cmd = parts[0];
                     if (cmd == "init") {
                         client.Init(line.Split(new char[] { ' ', '\t' }, 2, StringSplitOptions.RemoveEmptyEntries)[1]);
+                    }
+                    else if (cmd == "reset") {
+                        client.Reset();
                     }
                     else if (cmd == "read") {
                         KeyImpl key = ParseKey(parts[1]);

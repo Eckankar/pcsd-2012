@@ -284,8 +284,8 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl")]
-    public interface IKeyValueBaseOf_KeyImpl_ValueListImpl {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="KeyValueBaseReference.IKeyValueBaseService")]
+    public interface IKeyValueBaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Init", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitia" +
@@ -348,32 +348,36 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPutServiceNotInitial" +
             "izedFaultFault", Name="ServiceNotInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
         void BulkPut(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[] pairs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseService/Reset", ReplyAction="http://tempuri.org/IKeyValueBaseService/ResetResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault), Action="http://tempuri.org/IKeyValueBaseService/ResetServiceInitializingFaultFault", Name="ServiceInitializingFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
+        void Reset();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IKeyValueBaseOf_KeyImpl_ValueListImplChannel : KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl, System.ServiceModel.IClientChannel {
+    public interface IKeyValueBaseServiceChannel : KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class KeyValueBaseOf_KeyImpl_ValueListImplClient : System.ServiceModel.ClientBase<KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl>, KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl {
+    public partial class KeyValueBaseServiceClient : System.ServiceModel.ClientBase<KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseService>, KeyValueBaseClient.KeyValueBaseReference.IKeyValueBaseService {
         
-        public KeyValueBaseOf_KeyImpl_ValueListImplClient() {
+        public KeyValueBaseServiceClient() {
         }
         
-        public KeyValueBaseOf_KeyImpl_ValueListImplClient(string endpointConfigurationName) : 
+        public KeyValueBaseServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public KeyValueBaseOf_KeyImpl_ValueListImplClient(string endpointConfigurationName, string remoteAddress) : 
+        public KeyValueBaseServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public KeyValueBaseOf_KeyImpl_ValueListImplClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public KeyValueBaseServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public KeyValueBaseOf_KeyImpl_ValueListImplClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public KeyValueBaseServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -407,6 +411,10 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         
         public void BulkPut(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[] pairs) {
             base.Channel.BulkPut(pairs);
+        }
+        
+        public void Reset() {
+            base.Channel.Reset();
         }
     }
 }

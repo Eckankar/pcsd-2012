@@ -9,7 +9,7 @@ using System.Globalization;
 using System.Reflection;
 
 namespace KeyValueBase {
-    public class KeyValueBaseService : IKeyValueBase<KeyImpl, ValueListImpl> {
+    public class KeyValueBaseService : IKeyValueBaseService {
         private static object syncInitObj = new Object();
         private static bool initializing;
 
@@ -104,6 +104,15 @@ namespace KeyValueBase {
         public void BulkPut(IEnumerable<KeyValuePair<KeyImpl, ValueListImpl>> pairs) {
             CheckInitialized();
             throw new NotImplementedException();
+        }
+
+        public void Reset() {
+            lock (syncInitObj) {
+                if (initializing)
+                    throw new ServiceInitializingException();
+                store = null;
+                index = null;
+            }
         }
     }
 }

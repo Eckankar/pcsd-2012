@@ -71,6 +71,7 @@
     <Compile Include="Faults\ServiceAlreadyInitializedFault.cs" />
     <Compile Include="Faults\ServiceInitializingFault.cs" />
     <Compile Include="Faults\ServiceNotInitializedFault.cs" />
+    <Compile Include="IKeyValueBaseService.cs" />
     <Compile Include="IndexImpl.cs" />
     <Compile Include="Interfaces\IIndex.cs" />
     <Compile Include="Interfaces\IKey.cs" />

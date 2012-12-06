@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="6Q3dj9RyQQCIdak/+En9N7pKtJw=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="RgGuPhOd1YbokzQbpftMy+i1Y90=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IKeyValueBaseService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl</serializedValue>
+          <serializedValue>BasicHttpBinding_IKeyValueBaseService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>00:01:00</serializedValue>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl" contract="KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl" bindingType="basicHttpBinding" address="http://localhost:33376/KeyValueBaseService.svc" bindingConfiguration="BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl">
+    <endpoint name="BasicHttpBinding_IKeyValueBaseService" contract="KeyValueBaseReference.IKeyValueBaseService" bindingType="basicHttpBinding" address="http://localhost:33376/KeyValueBaseService.svc" bindingConfiguration="BasicHttpBinding_IKeyValueBaseService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:33376/KeyValueBaseService.svc</serializedValue>
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl</serializedValue>
+          <serializedValue>BasicHttpBinding_IKeyValueBaseService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>KeyValueBaseReference.IKeyValueBaseOf_KeyImpl_ValueListImpl</serializedValue>
+          <serializedValue>KeyValueBaseReference.IKeyValueBaseService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl</serializedValue>
+          <serializedValue>BasicHttpBinding_IKeyValueBaseService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

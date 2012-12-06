@@ -110,4 +110,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="Reset">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
