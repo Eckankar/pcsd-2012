@@ -41,8 +41,11 @@ namespace KeyValueBase {
 
         private static readonly char[] whiteSpace = new char[] { ' ', '\t' };
 
+        // Assumes that all values of same key are on consecutive lines.
         private void LoadIndexFromFile(string serverFilename) {
-            Dictionary<int, List<int>> keyValues = new Dictionary<int,List<int>>();
+            int? lastKey = null;
+            List<int> values = new List<int>();
+
             using (StreamReader sr = new StreamReader(serverFilename)) {
                 string line;
                 while ((line = sr.ReadLine()) != null) {
@@ -51,18 +54,16 @@ namespace KeyValueBase {
                     string[] parts = line.Split(whiteSpace, StringSplitOptions.RemoveEmptyEntries);
                     int key = Int32.Parse(parts[0], CultureInfo.InvariantCulture);
                     int value = Int32.Parse(parts[1], CultureInfo.InvariantCulture);
-                    List<int> valueList;
-                    if (!keyValues.TryGetValue(key, out valueList)) {
-                        valueList = new List<int>(new int[] { value });
-                        keyValues.Add(key, valueList);
+
+                    if (!lastKey.HasValue) lastKey = key;
+                    else if (key != lastKey) {
+                        index.Insert(new KeyImpl(lastKey.Value), new ValueListImpl(values.Select(v => new ValueImpl(v))));
+                        values.Clear();
+                        lastKey = key;
                     }
-                    else {
-                        valueList.Add(value);
-                    }
+
+                    values.Add(value);       
                 }
-            }
-            foreach (var kv in keyValues) {
-                index.Insert(new KeyImpl(kv.Key), new ValueListImpl(kv.Value.Select(v => new ValueImpl(v))));
             }
         }
 
