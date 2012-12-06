@@ -15,9 +15,9 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceAlreadyInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceInitializingFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
     [System.SerializableAttribute()]
-    public partial class ServiceAlreadyInitializedFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ServiceInitializingFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -60,9 +60,9 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceInitializingFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceAlreadyInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
     [System.SerializableAttribute()]
-    public partial class ServiceInitializingFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ServiceAlreadyInitializedFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -288,10 +288,10 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
     public interface IKeyValueBaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Init", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitia" +
-            "lizedFaultFault", Name="ServiceAlreadyInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
         [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceInitializingF" +
             "aultFault", Name="ServiceInitializingFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
+        [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitia" +
+            "lizedFaultFault", Name="ServiceAlreadyInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
         void Init(string serverFilename);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Read", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ReadResponse")]
@@ -322,8 +322,8 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
@@ -337,8 +337,8 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]

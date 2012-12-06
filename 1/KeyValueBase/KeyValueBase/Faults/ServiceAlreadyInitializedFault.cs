@@ -21,9 +21,11 @@ namespace KeyValueBase.Faults {
     }
 
     public class ServiceAlreadyInitializedException : FaultException<ServiceAlreadyInitializedFault> {
+        private ServiceAlreadyInitializedException(ServiceAlreadyInitializedFault fault)
+            : base(fault, fault.Message) { }
         public ServiceAlreadyInitializedException()
-            : base(new ServiceAlreadyInitializedFault()) { }
+            : this(new ServiceAlreadyInitializedFault()) { }
         public ServiceAlreadyInitializedException(string message)
-            : base(new ServiceAlreadyInitializedFault(message)) { }
+            : this(new ServiceAlreadyInitializedFault(message)) { }
     }
 }

@@ -15,11 +15,11 @@
   <wsdl:message name="IKeyValueBaseService_Init_OutputMessage">
     <wsdl:part name="parameters" element="tns:InitResponse" />
   </wsdl:message>
-  <wsdl:message name="IKeyValueBaseService_Init_ServiceAlreadyInitializedFaultFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q1:ServiceAlreadyInitializedFault" />
-  </wsdl:message>
   <wsdl:message name="IKeyValueBaseService_Init_ServiceInitializingFaultFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q2:ServiceInitializingFault" />
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q1:ServiceInitializingFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseService_Init_ServiceAlreadyInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q2:ServiceAlreadyInitializedFault" />
   </wsdl:message>
   <wsdl:message name="IKeyValueBaseService_Read_InputMessage">
     <wsdl:part name="parameters" element="tns:Read" />
@@ -97,8 +97,8 @@
     <wsdl:operation name="Init">
       <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Init" message="tns:IKeyValueBaseService_Init_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitResponse" message="tns:IKeyValueBaseService_Init_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitializedFaultFault" name="ServiceAlreadyInitializedFaultFault" message="tns:IKeyValueBaseService_Init_ServiceAlreadyInitializedFaultFault_FaultMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceInitializingFaultFault" name="ServiceInitializingFaultFault" message="tns:IKeyValueBaseService_Init_ServiceInitializingFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitializedFaultFault" name="ServiceAlreadyInitializedFaultFault" message="tns:IKeyValueBaseService_Init_ServiceAlreadyInitializedFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="Read">
       <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Read" message="tns:IKeyValueBaseService_Read_InputMessage" />
@@ -151,11 +151,11 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
-      <wsdl:fault name="ServiceAlreadyInitializedFaultFault">
-        <soap:fault use="literal" name="ServiceAlreadyInitializedFaultFault" namespace="" />
-      </wsdl:fault>
       <wsdl:fault name="ServiceInitializingFaultFault">
         <soap:fault use="literal" name="ServiceInitializingFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceAlreadyInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceAlreadyInitializedFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="Read">

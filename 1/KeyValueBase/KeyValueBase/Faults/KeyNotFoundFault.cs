@@ -32,9 +32,11 @@ namespace KeyValueBase.Faults {
     }
 
     public class KeyNotFoundException<K> : FaultException<KeyNotFoundFault<K>> where K : IKey<K> {
+        private KeyNotFoundException(KeyNotFoundFault<K> fault)
+            : base(fault, fault.Message) { }
         public KeyNotFoundException(K key)
-            : base(new KeyNotFoundFault<K>(key)) { }
+            : this(new KeyNotFoundFault<K>(key)) { }
         public KeyNotFoundException(K key, string message)
-            : base(new KeyNotFoundFault<K>(key, message)) { }
+            : this(new KeyNotFoundFault<K>(key, message)) { }
     }
 }

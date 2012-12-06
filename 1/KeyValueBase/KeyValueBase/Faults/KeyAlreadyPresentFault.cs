@@ -32,9 +32,11 @@ namespace KeyValueBase.Faults {
     }
 
     public class KeyAlreadyPresentException<K> : FaultException<KeyAlreadyPresentFault<K>> where K : IKey<K> {
+        private KeyAlreadyPresentException(KeyAlreadyPresentFault<K> fault)
+            : base(fault, fault.Message) { }
         public KeyAlreadyPresentException(K key)
-            : base(new KeyAlreadyPresentFault<K>(key)) { }
+            : this(new KeyAlreadyPresentFault<K>(key)) { }
         public KeyAlreadyPresentException(K key, string message)
-            : base(new KeyAlreadyPresentFault<K>(key, message)) { }
+            : this(new KeyAlreadyPresentFault<K>(key, message)) { }
     }
 }

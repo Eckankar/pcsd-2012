@@ -95,7 +95,15 @@ namespace KeyValueBase {
         }
 
         public void BulkPut(IEnumerable<KeyValuePair<KeyImpl, ValueListImpl>> pairs) {
-            throw new NotImplementedException();
+            lock (dict) {
+                foreach (KeyValuePair<KeyImpl, ValueListImpl> pair in pairs) {
+                    if (dict.ContainsKey(pair.Key)) {
+                        Update(pair.Key, pair.Value);
+                    } else {
+                        Insert(pair.Key, pair.Value);
+                    }
+                }
+            }
         }
     }
 }
