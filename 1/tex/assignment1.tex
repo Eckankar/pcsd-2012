@@ -207,11 +207,11 @@ they all lock the index. Any combination of these operations will be serial.
 % 1 paragraph description of prediction)
 
 The clients will essentially queue up, meaning the average latency will be
-$rtt + \sum_i^C P_i \frac 1 C$ where $C$ is the number of clients, $L$ is
+$rtt + \sum_i^C L P_i \frac 1 C$ where $C$ is the number of clients, $L$ is
 locking overhead, and $P_i$ is the processing time for the $i$th request.
 
-
-
+We expect the lock contention to be visible rather quickly, since each read will
+have to compete over the same lock.
 
 \subsection{Question 6}
 % Describe the setup of your experiment with real data. Document all factors that affect the
