@@ -199,6 +199,10 @@ they all lock the index. Any combination of these operations will be serial.
 % many clients would be necessary to elicit the behavior you predict? (2 paragraph description of model +
 % 1 paragraph description of prediction)
 
+The clients will essentially queue up, meaning the average latency will be
+$rtt + \sum_i^C P_i \frac 1 C$ where $C$ is the number of clients, and $P_i$ is the
+processing time for the $i$th request.
+
 
 
 
