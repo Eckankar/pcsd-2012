@@ -62,22 +62,28 @@ shared/exclusive locks and so on.
 
 \subsection{Question 2, Hardware trends}
 
-\begin{tabular}{|r|c|c|c|}
-    \hline
-                    & HDD & SSD & RAM\\\hline
-    Access time     & 10.000 us & ~100us & 0.1 us\\\hline % Source: slides from lecture 3, and http://en.wikipedia.org/wiki/Solid-state_drive
-    Capacity (GB)   & 1000-2000 & 128-256 & 1-4 \\\hline
-    Cost (kr/GB)    & 0.35 & 4.5-5.5 & 32 \\\hline
-    Reliability (1-5)*& 3 & 2 & 5\\\hline % Woop
-    Power consumption & <8w & 0.15W & ~1.65W \\\hline 
-	% Datasheets: Samsung Spinpoint F1 1TB disk, Samsung 830 SSD and Samsung DDR3 ram
-	% http://www.samsung.com/us/business/semiconductor/news/downloads/dsF11008.pdf
-	% http://www.samsung.com/us/business/oem-solutions/pdfs/PM830_mSATA%20SSD_32_64_128_256GB_Spec_1.0.pdf
-	% http://www.samsung.com/global/business/semiconductor/file/2011/product/2011/6/24/013928ds_k4b1g1646g_x16only_rev111.pdf
+\begin{table}[h!]
+    \centering
 
-\end{tabular}
+    \begin{tabular}{|r|c|c|c|}
+        \hline
+                        & HDD & SSD & RAM\\\hline
+        Access time     & 10.000 us & ~100us & 0.1 us\\\hline % Source: slides from lecture 3, and http://en.wikipedia.org/wiki/Solid-state_drive
+        Capacity (GB)   & 1000-2000 & 128-256 & 1-4 \\\hline
+        Cost (kr/GB)    & 0.35 & 4.5-5.5 & 32 \\\hline
+        Reliability (1-5)*& 3 & 2 & 5\\\hline % Woop
+        Power consumption & $<$8w & 0.15W & ~1.65W \\\hline 
+        % Datasheets: Samsung Spinpoint F1 1TB disk, Samsung 830 SSD and Samsung DDR3 ram
+        % http://www.samsung.com/us/business/semiconductor/news/downloads/dsF11008.pdf
+        % http://www.samsung.com/us/business/oem-solutions/pdfs/PM830_mSATA%20SSD_32_64_128_256GB_Spec_1.0.pdf
+        % http://www.samsung.com/global/business/semiconductor/file/2011/product/2011/6/24/013928ds_k4b1g1646g_x16only_rev111.pdf
+        
+    \end{tabular}
+    \caption{Rule of thumb hardware specifications.}
+\end{table}
 Capacity and cost pr capacity data retrieved from EDBpriser.dk, Nov 29 2012.
-Ram - 1 block at a time, no sets.
+Ram - 1 block at a time, no sets. Power consumption data retrieved from Samsung datasheets for
+Spinpoint F1 HDD, 830 SSD and DDR3 ram.
 
 Reliability is judged on a scale from 1 to 5, where 5 is the best.
 RAM is given the highest reliability, because the RAM is as reliable
@@ -161,7 +167,11 @@ Atomicity is ensured through exclusive locking of the KeyValueBase dictionary.
 Locking is done globally on the entire dictionary on each operation.
 
 \subsection{Question 3}
-How did we test multithreading part?
+% How did 
+We tested the service against the wiki-Votes dataset\footnote{http://snap.stanford.edu/data/wiki-Vote.html},
+by comparing it to locally read data from the same dataset.
+%How did we test multithreading part?
+
 
 \subsection{Question 4}
 %What are the main parameters that influence throughput and latency of the first version?
@@ -183,12 +193,54 @@ Init, read, insertion, update are mutually exclusive in terms of locking, since
 they all lock the index. Any combination of these operations will be serial.
 
 \subsection{Question 5}
+% Devise a simple back-of-the-envelope analytical model of how the number of clients affects
+% the performance of your service (throughput and latency), given all other parameters are fixed. What
+% behavior would you expect from your service as the number of clients increases? Can you estimate how
+% many clients would be necessary to elicit the behavior you predict? (2 paragraph description of model +
+% 1 paragraph description of prediction)
+
+
+
 
 \subsection{Question 6}
+% Describe the setup of your experiment with real data. Document all factors that affect the
+% performance of your service. Make every client of your service call only read operations, with a
+% distribution of keys drawn from a Zipf distribution.2 Carry out the experiment and report your results with
+% two graphs: one with throughput in the y-axis and one with latency in the y-axis. In the x-axis, plot the
+% number of clients used with the service.
+
+% Zipf distribution experiment GO!
+
+% Plot with throughput over clients
+
+% Plot with latency over clients
 
 \subsection{Question 7}
+% Explain the effects you observe regarding throughput and latency of your service.
+
+% Explain the plots..
+
 
 \subsection{Question 8}
+% Given your response to Question 4, what other experiments would you use to quantify the
+% performance of KeyValueBase? Justify your choices. (2 paragraphs) 
+Since scans are item-concurrent, a comparison of scanning versus the other operations
+will reveal the impact of bottlenecking at the index, and the possible gains from refining the
+locking in other functions.
+
+Measurement of throughput as a function of the element size. That is, small(4 bytes) to large(4MB)
+values. This should show the overhead cost of a single insertion, with throughput increasing
+linearly for larger values. If this is not the case, the scalability of the insertion method
+is simply insufficient.
+
+
+\subsection{Question 9}
+{\tt atomicScan} is simply implemented by wrapping the {\tt Scan} function,
+using the same lock as the other functions use.
+
+{\tt bulkPut} is implemented by taking the lock at the start of insertion, as
+well as locking the single elements (protection from scans), and releasing only
+when the last value has been inserted.
 
 \end{document}
 
