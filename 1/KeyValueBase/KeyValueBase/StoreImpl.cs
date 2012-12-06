@@ -16,14 +16,14 @@ namespace KeyValueBase {
         public byte[] Read(long position, int length) {
             lock (file) {
                 byte[] output = new byte[length];
-                file.ReadArray<byte>(0, output, (int)position, length);
+                file.ReadArray<byte>(position, output, 0, length);
                 return output;
             }
         }
 
         public void Write(long position, byte[] value) {
             lock (file) {
-                file.WriteArray<byte>(0, value, (int)position, value.Length);
+                file.WriteArray<byte>(position, value, 0, value.Length);
             }
         }
     }
