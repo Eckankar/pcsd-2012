@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="KeyValueBaseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" />
+      <xsd:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KeyValueBase" />
+      <xsd:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_InputMessage">
+    <wsdl:part name="parameters" element="tns:Init" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_ServiceAlreadyInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q1:ServiceAlreadyInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_ServiceInitializingFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q2:ServiceInitializingFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:Read" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q3:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q4:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q5:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q6:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_InputMessage">
+    <wsdl:part name="parameters" element="tns:Scan" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ScanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q7:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_InputMessage">
+    <wsdl:part name="parameters" element="tns:AtomicScan" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AtomicScanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q8:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkPut" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkPutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_ServiceNotInitializedFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults" name="detail" element="q9:ServiceNotInitializedFault" />
+  </wsdl:message>
+  <wsdl:portType name="IKeyValueBaseOf_KeyImpl_ValueListImpl">
+    <wsdl:operation name="Init">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Init" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceAlreadyInitializedFaultFault" name="ServiceAlreadyInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_ServiceAlreadyInitializedFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InitServiceInitializingFaultFault" name="ServiceInitializingFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Init_ServiceInitializingFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Read" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ReadResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ReadServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Read_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Insert" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InsertResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/InsertServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Insert_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Update" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/UpdateResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/UpdateServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Update_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Delete" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/DeleteResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/DeleteServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Delete_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Scan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Scan" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ScanResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ScanServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_Scan_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AtomicScan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScan" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScanResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScanServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_AtomicScan_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkPut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPut" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPutResponse" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPutServiceNotInitializedFaultFault" name="ServiceNotInitializedFaultFault" message="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl_BulkPut_ServiceNotInitializedFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl" type="tns:IKeyValueBaseOf_KeyImpl_ValueListImpl">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Init">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceAlreadyInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceAlreadyInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ServiceInitializingFaultFault">
+        <soap:fault use="literal" name="ServiceInitializingFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Read">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Read" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Scan">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Scan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AtomicScan">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="BulkPut">
+      <soap:operation soapAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceNotInitializedFaultFault">
+        <soap:fault use="literal" name="ServiceNotInitializedFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KeyValueBaseService">
+    <wsdl:port name="BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl" binding="tns:BasicHttpBinding_IKeyValueBaseOf_KeyImpl_ValueListImpl">
+      <soap:address location="http://localhost:33376/KeyValueBaseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
