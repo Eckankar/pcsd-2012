@@ -149,5 +149,41 @@ the time taken, in order to figure out the bandwidth achieved.
 The same math can be performed as in the first experiment to determine the
 bandwidth achieved.
 
+\section{Programming task}
+
+\subsection{Question 1}
+The clients will use an at least once semantic. Executing an operation
+several times will not change the state of the service differently from
+exactly once, and as such is fully appropriate.
+
+\subsection{Question 2}
+Atomicity is ensured through exclusive locking of the KeyValueBase dictionary.
+Locking is done globally on the entire dictionary on each operation.
+
+\subsection{Question 3}
+How did we test multithreading part?
+
+\subsection{Question 4}
+%What are the main parameters that influence throughput and latency of the first version?
+Since we use exclusive locking, throughput should be equivalent or perhaps slightly degrading
+when adding more clients. The expected latency will increase linearly with the number of
+clients.
+
+With this version, the hardware characteristics will have little or no influence on the
+performance, since it is essentially a serial solution. The memory size will limit the
+buffering of the memory mapped file, meaning that the greatest performance hit
+on the system is if the dataset is larger than main memory.
+
+%Mix of operations?
+The only concurrent operation is scan. This operation locks only the values it
+reads, in order to ensure data integrity. Since no insertion will modify this
+(and thereby hold the lock), scans only affect the performance of other scans.
+
+Init, read, insertion, update are mutually exclusive in terms of locking, since
+they all lock the index. Any combination of these operations will be serial.
+
+\subsection{Question 5}
+
+
 \end{document}
 
