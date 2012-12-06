@@ -26,7 +26,7 @@ namespace KeyValueBase {
             if (index != null)
                 throw new ServiceAlreadyInitializedException();
             store = new StoreImpl(1024*1024*10);
-            index = new IndexImpl();
+            index = new IndexImpl(store);
             LoadIndexFromFile(serverFilename);
 
             lock (syncInitObj) {
