@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KeyValueBase" />
+  <xs:import schemaLocation="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:element name="Init">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="serverFilename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InitResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Read">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="key" nillable="true" type="q1:KeyImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="ReadResult" nillable="true" type="q2:ValueListImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="key" nillable="true" type="q3:KeyImpl" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="value" nillable="true" type="q4:ValueListImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="key" nillable="true" type="q5:KeyImpl" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="newValue" nillable="true" type="q6:ValueListImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="key" nillable="true" type="q7:KeyImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Scan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="begin" nillable="true" type="q8:KeyImpl" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="end" nillable="true" type="q9:KeyImpl" />
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ScanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="ScanResult" nillable="true" type="q10:ArrayOfValueListImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AtomicScan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="begin" nillable="true" type="q11:KeyImpl" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="end" nillable="true" type="q12:KeyImpl" />
+        <xs:element minOccurs="0" name="predicate" nillable="true" type="xs:anyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AtomicScanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/KeyValueBase" minOccurs="0" name="AtomicScanResult" nillable="true" type="q13:ArrayOfValueListImpl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkPut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="pairs" nillable="true" type="q14:ArrayOfKeyValuePairOfKeyImplValueListImpl34Drv9KL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BulkPutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reset">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
