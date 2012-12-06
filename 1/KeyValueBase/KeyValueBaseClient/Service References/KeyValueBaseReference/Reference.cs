@@ -283,6 +283,353 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AndPredicateOfValueListImpl5eNmv5yi", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.OrPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.NotPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ContainsPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MinLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MaxLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
+    public partial class AndPredicateOfValueListImpl5eNmv5yi : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object Predicate1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object Predicate2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Predicate1 {
+            get {
+                return this.Predicate1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Predicate1Field, value) != true)) {
+                    this.Predicate1Field = value;
+                    this.RaisePropertyChanged("Predicate1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Predicate2 {
+            get {
+                return this.Predicate2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Predicate2Field, value) != true)) {
+                    this.Predicate2Field = value;
+                    this.RaisePropertyChanged("Predicate2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrPredicateOfValueListImpl5eNmv5yi", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.AndPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.NotPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ContainsPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MinLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MaxLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
+    public partial class OrPredicateOfValueListImpl5eNmv5yi : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object Predicate1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object Predicate2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Predicate1 {
+            get {
+                return this.Predicate1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Predicate1Field, value) != true)) {
+                    this.Predicate1Field = value;
+                    this.RaisePropertyChanged("Predicate1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Predicate2 {
+            get {
+                return this.Predicate2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Predicate2Field, value) != true)) {
+                    this.Predicate2Field = value;
+                    this.RaisePropertyChanged("Predicate2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NotPredicateOfValueListImpl5eNmv5yi", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.AndPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.OrPredicateOfValueListImpl5eNmv5yi))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ContainsPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MinLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MaxLengthPredicate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
+    public partial class NotPredicateOfValueListImpl5eNmv5yi : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object PredicateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Predicate {
+            get {
+                return this.PredicateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PredicateField, value) != true)) {
+                    this.PredicateField = value;
+                    this.RaisePropertyChanged("Predicate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContainsPredicate", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    public partial class ContainsPredicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private KeyValueBaseClient.KeyValueBaseReference.ValueImpl ElementField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public KeyValueBaseClient.KeyValueBaseReference.ValueImpl Element {
+            get {
+                return this.ElementField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ElementField, value) != true)) {
+                    this.ElementField = value;
+                    this.RaisePropertyChanged("Element");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MinLengthPredicate", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    public partial class MinLengthPredicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LengthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Length {
+            get {
+                return this.LengthField;
+            }
+            set {
+                if ((this.LengthField.Equals(value) != true)) {
+                    this.LengthField = value;
+                    this.RaisePropertyChanged("Length");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaxLengthPredicate", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase")]
+    [System.SerializableAttribute()]
+    public partial class MaxLengthPredicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LengthField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Length {
+            get {
+                return this.LengthField;
+            }
+            set {
+                if ((this.LengthField.Equals(value) != true)) {
+                    this.LengthField = value;
+                    this.RaisePropertyChanged("Length");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="KeyValueBaseReference.IKeyValueBaseService")]
     public interface IKeyValueBaseService {
@@ -317,31 +664,43 @@ namespace KeyValueBaseClient.KeyValueBaseReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/Scan", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ScanResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/ScanServiceNotInitialize" +
             "dFaultFault", Name="ServiceNotInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.AndPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.OrPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.NotPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ContainsPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MinLengthPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MaxLengthPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
         KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[] Scan(KeyValueBaseClient.KeyValueBaseReference.KeyImpl begin, KeyValueBaseClient.KeyValueBaseReference.KeyImpl end, object predicate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScan", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScanResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault), Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/AtomicScanServiceNotInit" +
             "ializedFaultFault", Name="ServiceNotInitializedFault", Namespace="http://schemas.datacontract.org/2004/07/KeyValueBase.Faults")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceInitializingFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceAlreadyInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ServiceNotInitializedFault))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.KeyValuePair<KeyValueBaseClient.KeyValueBaseReference.KeyImpl, KeyValueBaseClient.KeyValueBaseReference.ValueListImpl>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.AndPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.OrPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.NotPredicateOfValueListImpl5eNmv5yi))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ContainsPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MinLengthPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.MaxLengthPredicate))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.KeyImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueImpl[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[]))]
         KeyValueBaseClient.KeyValueBaseReference.ValueListImpl[] AtomicScan(KeyValueBaseClient.KeyValueBaseReference.KeyImpl begin, KeyValueBaseClient.KeyValueBaseReference.KeyImpl end, object predicate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPut", ReplyAction="http://tempuri.org/IKeyValueBaseOf_KeyImpl_ValueListImpl/BulkPutResponse")]

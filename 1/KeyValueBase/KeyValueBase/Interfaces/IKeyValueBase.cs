@@ -6,6 +6,7 @@ using KeyValueBase.Faults;
 namespace KeyValueBase.Interfaces
 {
   [ServiceContract]
+  [ServiceKnownType("GetPredicateTypes", typeof(PredicateTypesHelper))]
   public interface IKeyValueBase<K, V>
     where K : IKey<K>
     where V : IValue
