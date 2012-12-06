@@ -21,11 +21,11 @@
     <MetadataSource Address="http://localhost:33376/KeyValueBaseService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="KeyValueBaseService.xsd" MetadataType="Schema" ID="a829dc6e-410b-44a1-b30c-3715f4a57906" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd1" />
+    <MetadataFile FileName="KeyValueBaseService.wsdl" MetadataType="Wsdl" ID="0f81b213-081a-4253-b0fc-832998eca386" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?wsdl" />
     <MetadataFile FileName="KeyValueBaseService1.xsd" MetadataType="Schema" ID="ad30f9b7-c65f-4b9e-86cf-346daf1a8b2d" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd3" />
     <MetadataFile FileName="KeyValueBaseService2.xsd" MetadataType="Schema" ID="96f42aaa-a540-4e8b-95d5-3ab82e55b601" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd2" />
     <MetadataFile FileName="KeyValueBaseService3.xsd" MetadataType="Schema" ID="499537d1-90d2-42f4-836a-2d39fecfaaee" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd4" />
-    <MetadataFile FileName="KeyValueBaseService.wsdl" MetadataType="Wsdl" ID="0f81b213-081a-4253-b0fc-832998eca386" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?wsdl" />
+    <MetadataFile FileName="KeyValueBaseService.xsd" MetadataType="Schema" ID="a829dc6e-410b-44a1-b30c-3715f4a57906" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd1" />
     <MetadataFile FileName="KeyValueBaseService4.xsd" MetadataType="Schema" ID="3c493895-8bdc-4b3f-bf58-fc9a048bec87" SourceId="1" SourceUrl="http://localhost:33376/KeyValueBaseService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
