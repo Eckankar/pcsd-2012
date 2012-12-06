@@ -5,6 +5,7 @@ using System.Text;
 using KeyValueBase.Interfaces;
 using System.ServiceModel;
 using KeyValueBase.Faults;
+using System.Runtime.Serialization;
 
 namespace KeyValueBase {
     [ServiceContract]

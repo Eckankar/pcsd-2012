@@ -9,7 +9,7 @@ namespace KeyValueBase {
     public class StoreImpl : IStore {
         MemoryMappedViewAccessor file;
 
-        public StoreImpl(int capacity) {
+        public StoreImpl(long capacity) {
             file = MemoryMappedFile.CreateNew("data", capacity).CreateViewAccessor();
         }
 
