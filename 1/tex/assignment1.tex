@@ -169,13 +169,16 @@ Locking is done globally on the entire dictionary on each operation.
 
 \subsection{Question 3}
 % How did 
-We tested the service against the wiki-Votes dataset\footnote{http://snap.stanford.edu/data/wiki-Vote.html},
-by comparing it to locally read data from the same dataset.
+We tested the service against the wiki-Votes \footnote{http://snap.stanford.edu/data/wiki-Vote.html} and
+soc-Slashdot0922 \footnote{http://snap.stanford.edu/data/soc-Slashdot0902.html} datasets
+by comparing it to locally read data from the same dataset. We were unable to load the
+soc-LiveJournal1-set\footnote{http://snap.stanford.edu/data/soc-LiveJournal1.html} due to
+memory constraints.
 
 %How did we test multithreading part?
-We would make a number of serial requests to generate a reference set of
-responses. We could then run the same requests in parallel and validate the
-results against the reference.
+In order to test multithreading, we would make a number of serial requests to
+generate a reference set of responses. We could then run the same requests in
+parallel and validate the results against the reference.
 
 \subsection{Question 4}
 %What are the main parameters that influence throughput and latency of the first version?
