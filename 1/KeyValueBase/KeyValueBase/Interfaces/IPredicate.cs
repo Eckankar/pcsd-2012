@@ -1,7 +1,5 @@
-﻿namespace KeyValueBase.Interfaces
-{
-  public interface IPredicate<T>
-  {
-    bool Evaluate(T input);
-  }
+﻿namespace KeyValueBase.Interfaces {
+    public interface IPredicate<T> {
+        bool Evaluate(T input);
+    }
 }
