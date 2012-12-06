@@ -6,6 +6,7 @@ using KeyValueBase.Interfaces;
 using KeyValueBase.Faults;
 using System.IO;
 using System.Globalization;
+using System.Reflection;
 
 namespace KeyValueBase {
     public class KeyValueBaseService : IKeyValueBase<KeyImpl, ValueListImpl> {
@@ -16,6 +17,10 @@ namespace KeyValueBase {
         private static IndexImpl index;
 
         public void Init(string serverFilename) {
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+            if (codeBase.StartsWith("file:"))
+                codeBase = codeBase.Substring(5).TrimStart('/', '\\');
+            serverFilename = Path.Combine(Path.GetDirectoryName(codeBase), serverFilename);
             if (!File.Exists(serverFilename))
                 throw new FileNotFoundException("Store initialization file not found", serverFilename);
             lock (syncInitObj) {
@@ -41,6 +46,8 @@ namespace KeyValueBase {
             using (StreamReader sr = new StreamReader(serverFilename)) {
                 string line;
                 while ((line = sr.ReadLine()) != null) {
+                    if (line.First(c => !whiteSpace.Contains(c)) == '#')
+                        continue;
                     string[] parts = line.Split(whiteSpace, StringSplitOptions.RemoveEmptyEntries);
                     int key = Int32.Parse(parts[0], CultureInfo.InvariantCulture);
                     int value = Int32.Parse(parts[1], CultureInfo.InvariantCulture);
