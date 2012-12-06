@@ -82,6 +82,7 @@
     <Compile Include="Interfaces\IValueList.cs" />
     <Compile Include="Interfaces\IValueSerializer.cs" />
     <Compile Include="KeyImpl.cs" />
+    <Compile Include="PredicateImpls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KeyValueBaseService.svc.cs">
       <DependentUpon>KeyValueBaseService.svc</DependentUpon>
