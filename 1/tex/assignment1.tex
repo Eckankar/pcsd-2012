@@ -200,8 +200,8 @@ they all lock the index. Any combination of these operations will be serial.
 % 1 paragraph description of prediction)
 
 The clients will essentially queue up, meaning the average latency will be
-$rtt + \sum_i^C P_i \frac 1 C$ where $C$ is the number of clients, and $P_i$ is the
-processing time for the $i$th request.
+$rtt + \sum_i^C P_i \frac 1 C$ where $C$ is the number of clients, $L$ is
+locking overhead, and $P_i$ is the processing time for the $i$th request.
 
 
 
@@ -221,8 +221,13 @@ processing time for the $i$th request.
 
 \subsection{Question 7}
 % Explain the effects you observe regarding throughput and latency of your service.
-
 % Explain the plots..
+The experiment shows the expected increase in latency, because of exclusive locking.
+Therefore, the server will have to manage a lot of waiting requests, while
+gaining no concurrency in calculation.
+
+Since the throughput is just the inverse of the latency, a corresponding decrease
+in throughput has been observed.
 
 
 \subsection{Question 8}
