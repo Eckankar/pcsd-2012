@@ -220,6 +220,11 @@ have to compete over the same lock.
 % two graphs: one with throughput in the y-axis and one with latency in the y-axis. In the x-axis, plot the
 % number of clients used with the service.
 
+We have made an application that spawns from 1 to 25 clients, in different
+threads, on each thread measuring the time it takes to make 100 requests.
+The items requested were Zipf distributed using Mathematica.
+The setup can be seen in the subproject LotsOfClients.
+
 % Plot with throughput over clients
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{latencygraph.pdf}
