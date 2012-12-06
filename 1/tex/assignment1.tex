@@ -68,7 +68,7 @@ shared/exclusive locks and so on.
     Access time     & 10.000 us & ~100us & 0.1 us\\\hline % Source: slides from lecture 3, and http://en.wikipedia.org/wiki/Solid-state_drive
     Capacity (GB)   & 1000-2000 & 128-256 & 1-4 \\\hline
     Cost (kr/GB)    & 0.35 & 4.5-5.5 & 32 \\\hline
-    Reliability     & & & \\\hline % Still dont know..
+    Reliability (1-5)*& 3 & 2 & 5\\\hline % Woop
     Power consumption & <8w & 0.15W & ~1.65W \\\hline 
 	% Datasheets: Samsung Spinpoint F1 1TB disk, Samsung 830 SSD and Samsung DDR3 ram
 	% http://www.samsung.com/us/business/semiconductor/news/downloads/dsF11008.pdf
@@ -79,7 +79,19 @@ shared/exclusive locks and so on.
 Capacity and cost pr capacity data retrieved from EDBpriser.dk, Nov 29 2012.
 Ram - 1 block at a time, no sets.
 
-Reliability - read errors? Mean time to failure?
+Reliability is judged on a scale from 1 to 5, where 5 is the best.
+RAM is given the highest reliability, because the RAM is as reliable
+as the system it is in, meaning only sudden shutdowns can cause data-loss,
+which is easily handled with a UPS and emergency shutdown procedures.
+SSDs are a relatively new technology, meaning that consumer SSDs often
+are suffering from firmware errors. The second threat to SSDs is the limited
+number of writes to a memory cell, making the lifetime expectancy comparable
+to that of a mechanical harddisk.
+
+\subsubsection{What technologies would you use for Q1?}
+Main memory is used as a buffer for reads and writes. SSDs or HDDs will be used in order to gain persistence of the data.
+If the average read/write size of the service is large, the gains from using SSDs will be neglible in relation to the increased cost,
+making HDDs the best choice. If, however the service is a high-performance small-file storage for instance, SSDs will be favorable.
 
 
 \subsection{Question 3, Performance}
