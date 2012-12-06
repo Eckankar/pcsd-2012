@@ -20,7 +20,7 @@ namespace KeyValueBase {
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             if (codeBase.StartsWith("file:"))
                 codeBase = codeBase.Substring(5).TrimStart('/', '\\');
-            serverFilename = Path.Combine(Path.GetDirectoryName(codeBase), serverFilename);
+            serverFilename = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(codeBase), "..", "data", serverFilename));
             if (!File.Exists(serverFilename))
                 throw new FileNotFoundException("Store initialization file not found", serverFilename);
             lock (syncInitObj) {
