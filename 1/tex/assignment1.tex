@@ -2,6 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{graphicx}
 
 \title{Principles of Computer System Design\\Assignment 1}
 \author{Jacob Wejendorp\\Sebastian Paaske Tørholm\\Kasper Fabæch Brandt}
@@ -170,8 +171,11 @@ Locking is done globally on the entire dictionary on each operation.
 % How did 
 We tested the service against the wiki-Votes dataset\footnote{http://snap.stanford.edu/data/wiki-Vote.html},
 by comparing it to locally read data from the same dataset.
-%How did we test multithreading part?
 
+%How did we test multithreading part?
+We would make a number of serial requests to generate a reference set of
+responses. We could then run the same requests in parallel and validate the
+results against the reference.
 
 \subsection{Question 4}
 %What are the main parameters that influence throughput and latency of the first version?
@@ -213,9 +217,15 @@ locking overhead, and $P_i$ is the processing time for the $i$th request.
 % two graphs: one with throughput in the y-axis and one with latency in the y-axis. In the x-axis, plot the
 % number of clients used with the service.
 
-% Zipf distribution experiment GO!
-
 % Plot with throughput over clients
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{latencygraph.pdf}
+    \caption{Latency in milliseconds over number of clients}
+\end{figure}
+\begin{figure}[h!]
+    \includegraphics[width=\textwidth]{throughputgraph.pdf}
+    \caption{Throughput in requests per second over number of clients}
+\end{figure}
 
 % Plot with latency over clients
 
