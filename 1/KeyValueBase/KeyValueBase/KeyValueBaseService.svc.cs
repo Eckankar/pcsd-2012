@@ -20,7 +20,11 @@ namespace KeyValueBase {
             string codeBase = Assembly.GetExecutingAssembly().CodeBase;
             if (codeBase.StartsWith("file:"))
                 codeBase = codeBase.Substring(5).TrimStart('/', '\\');
-            serverFilename = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(codeBase), "..", "data", serverFilename));
+            if (serverFilename.Contains(':')) {
+                serverFilename = Path.GetFullPath(serverFilename);
+            } else {
+                serverFilename = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(codeBase), "..", "data", serverFilename));
+            }
             if (!File.Exists(serverFilename))
                 throw new FileNotFoundException("Store initialization file not found", serverFilename);
             lock (syncInitObj) {
@@ -30,7 +34,7 @@ namespace KeyValueBase {
             }
             if (index != null)
                 throw new ServiceAlreadyInitializedException();
-            store = new StoreImpl(1024*1024*10);
+            store = new StoreImpl(1024*1024*1024);
             index = new IndexImpl(store);
             LoadIndexFromFile(serverFilename);
 
