@@ -22,9 +22,9 @@ namespace KeyValueBase {
         }
 
 
-        public IndexImpl() {
+        public IndexImpl(IStore appleStore) {
             dict = new Dictionary<KeyImpl, AllocRecord>();
-            appleStore = new StoreImpl(100000000);
+            this.appleStore = appleStore;
             nextFree = 0;
             serializer = new ValueListSerializerImpl();
         }
