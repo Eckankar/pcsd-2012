@@ -99,12 +99,12 @@ namespace KeyValueBase {
 
         public IEnumerable<ValueListImpl> AtomicScan(KeyImpl begin, KeyImpl end, IPredicate<ValueListImpl> predicate) {
             CheckInitialized();
-            throw new NotImplementedException();
+            return index.AtomicScan(begin, end).Where(v => predicate.Evaluate(v));
         }
 
         public void BulkPut(IEnumerable<KeyValuePair<KeyImpl, ValueListImpl>> pairs) {
             CheckInitialized();
-            throw new NotImplementedException();
+            index.BulkPut(pairs);
         }
 
         public void Reset() {
