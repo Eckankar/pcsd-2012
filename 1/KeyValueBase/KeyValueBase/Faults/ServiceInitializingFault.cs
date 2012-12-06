@@ -21,7 +21,9 @@ namespace KeyValueBase.Faults {
     }
 
     public class ServiceInitializingException : FaultException<ServiceInitializingFault> {
-        public ServiceInitializingException() : base(new ServiceInitializingFault()) { }
-        public ServiceInitializingException(string message) : base(new ServiceInitializingFault(message)) { }
+        private ServiceInitializingException(ServiceInitializingFault fault)
+            : base(fault, fault.Message) { }
+        public ServiceInitializingException() : this(new ServiceInitializingFault()) { }
+        public ServiceInitializingException(string message) : this(new ServiceInitializingFault(message)) { }
     }
 }
