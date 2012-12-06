@@ -40,9 +40,11 @@ namespace KeyValueBase.Faults {
     }
 
     public class BeginGreaterThanEndException<K> : FaultException<BeginGreaterThanEndFault<K>> where K : IKey<K> {
+        private BeginGreaterThanEndException(BeginGreaterThanEndFault<K> fault)
+            : base(fault, fault.Message) { }
         public BeginGreaterThanEndException(K beginKey, K endKey)
-            : base(new BeginGreaterThanEndFault<K>(beginKey, endKey)) { }
+            : this(new BeginGreaterThanEndFault<K>(beginKey, endKey)) { }
         public BeginGreaterThanEndException(K beginKey, K endKey, string message)
-            : base(new BeginGreaterThanEndFault<K>(beginKey, endKey, message)) { }
+            : this(new BeginGreaterThanEndFault<K>(beginKey, endKey, message)) { }
     }
 }

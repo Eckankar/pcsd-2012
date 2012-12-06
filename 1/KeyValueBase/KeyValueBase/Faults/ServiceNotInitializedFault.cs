@@ -21,7 +21,9 @@ namespace KeyValueBase.Faults {
     }
 
     public class ServiceNotInitializedException : FaultException<ServiceNotInitializedFault> {
-        public ServiceNotInitializedException() : base(new ServiceNotInitializedFault()) { }
-        public ServiceNotInitializedException(string message) : base(new ServiceNotInitializedFault(message)) { }
+        private ServiceNotInitializedException(ServiceNotInitializedFault fault)
+            : base(fault, fault.Message) { }
+        public ServiceNotInitializedException() : this(new ServiceNotInitializedFault()) { }
+        public ServiceNotInitializedException(string message) : this(new ServiceNotInitializedFault(message)) { }
     }
 }
