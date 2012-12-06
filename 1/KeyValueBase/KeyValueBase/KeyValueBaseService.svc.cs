@@ -34,7 +34,7 @@ namespace KeyValueBase {
             }
             if (index != null)
                 throw new ServiceAlreadyInitializedException();
-            store = new StoreImpl(1024*1024*1024);
+            store = new StoreImpl(10*1024*1024);
             index = new IndexImpl(store);
             LoadIndexFromFile(serverFilename);
 
