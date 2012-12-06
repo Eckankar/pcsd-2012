@@ -26,7 +26,7 @@ namespace KeyValueBaseClient {
                     }
                     else if (cmd == "read") {
                         KeyImpl key = ParseKey(parts[1]);
-                        Console.WriteLine(client.Read(key));
+                        PrintList(client.Read(key));
                     }
                     else if (cmd == "insert") {
                         KeyImpl key = ParseKey(parts[1]);
@@ -54,6 +54,10 @@ namespace KeyValueBaseClient {
             }
             
             client.Close();
+        }
+
+        private static void PrintList(ValueListImpl valueListImpl) {
+            Console.WriteLine(String.Join(", ", valueListImpl.List.Select(v => v.Value)));
         }
 
         private static KeyImpl ParseKey(string val) {
