@@ -21,28 +21,41 @@ address.
 
 This model requires a naming service to determine what address each machine
 has. This address could, for instance, be an IP address.
+In its simplest form, the tuple is simply \texttt{(ip-address, memory-address)}.
 
 \subsubsection{Pseudocode for implementation of READ/WRITE}
 
 \begin{verbatim}
 def READ((machineaddr, dataaddr)):
-    machine = connect(machineaddr)
-    data = machine.read(dataaddr)
-    machine.disconnect()
+    try {
+        machine = connect(machineaddr, timeout)
+        data = machine.read(dataaddr)
+        machine.disconnect()
+    } catch(TimeoutException) {
+        data = null
+    }
 
     return data
 \end{verbatim}
 
 \begin{verbatim}
 def WRITE((machineaddr, dataaddr), data):
-    machine = connect(machineaddr)
-    machine.write(dataaddr, data)
-    machine.disconnect()
+    try {
+        machine = connect(machineaddr, timeout)
+        data = machine.write(dataaddr, data)
+        machine.disconnect()
+        return true
+    } catch(TimeoutException) {
+        return false
+    }
 \end{verbatim}
 
 Here, \texttt{connect} is a function that produces a connection object to
 communicate with the given machine, and said object has a \texttt{read} and
-\texttt{write} method that works locally on that machine.
+\texttt{write} method that works locally on that machine. In case of a non-responsive
+machine, the connect function times out and recovers by responding with null and false,
+for reads, resp. writes.
+
 Pattern matching is used to extract the parts of the address from the full
 address (tuple).
 
@@ -68,10 +81,10 @@ shared/exclusive locks and so on.
 
     \begin{tabular}{|r|c|c|c|}
         \hline
-                        & HDD & SSD & RAM\\\hline
-        Access time     & 10.000 us & ~100us & 0.1 us\\\hline % Source: slides from lecture 3, and http://en.wikipedia.org/wiki/Solid-state_drive
-        Capacity (GB)   & 1000-2000 & 128-256 & 1-4 \\\hline
-        Cost (kr/GB)    & 0.35 & 4.5-5.5 & 32 \\\hline
+                               & HDD & SSD & RAM\\\hline
+        Access time (R/W)  & 10.000/400.000 us & ~100/4.000us & 0,1/4,0us\\\hline % Source: slides from lecture 3, and http://en.wikipedia.org/wiki/Solid-state_drive
+        Capacity (GB) & 1000-2000 & 128-256 & 1-4 \\\hline
+        Cost (kr/GB)   & 0.35 & 4.5-5.5 & 32 \\\hline
         Reliability (1-5)*& 3 & 2 & 5\\\hline % Woop
         Power consumption & $<$8w & 0.15W & ~1.65W \\\hline 
         % Datasheets: Samsung Spinpoint F1 1TB disk, Samsung 830 SSD and Samsung DDR3 ram
@@ -82,6 +95,9 @@ shared/exclusive locks and so on.
     \end{tabular}
     \caption{Rule of thumb hardware specifications.}
 \end{table}
+Access times based on course slides, wikipedia for SSDs, and rules of thumb
+for Google AppEngine: Numbers everyone should know\footnote{http://highscalability.com/numbers-everyone-should-know}.
+
 Capacity and cost pr capacity data retrieved from EDBpriser.dk, Nov 29 2012.
 Ram - 1 block at a time, no sets. Power consumption data retrieved from Samsung datasheets for
 Spinpoint F1 HDD, 830 SSD and DDR3 ram.
@@ -162,10 +178,22 @@ bandwidth achieved.
 The clients will use an at least once semantic. Executing an operation
 several times will not change the state of the service differently from
 exactly once, and as such is fully appropriate.
+By definition, multiple writes (from different clients) to the same key poses a race condition,
+and if the client does not receive an appropriate response from the server,
+there is no way of knowing if the write is done until such response is received.
+It is therefore the programmers responsibility to avoid such race conditions.
 
 \subsection{Question 2}
+% TODO: Rewrite this when new locking is used.
 Atomicity is ensured through exclusive locking of the KeyValueBase dictionary.
 Locking is done globally on the entire dictionary on each operation.
+
+% Main elements in solution.
+
+
+% Free-space management
+The KeyValueBase does not support delete operations. Therefore no
+free-space management is needed.
 
 \subsection{Question 3}
 % How did 
@@ -223,16 +251,19 @@ have to compete over the same lock.
 We have made an application that spawns from 1 to 25 clients, in different
 threads, on each thread measuring the time it takes to make 100 requests.
 The items requested were Zipf distributed using Mathematica.
-The setup can be seen in the subproject LotsOfClients.
+The setup can be seen in the subproject LotsOfClients, and results can be
+ seen in figures \ref{fig:latency} and \ref{fig:throughput}.
 
 % Plot with throughput over clients
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{latencygraph.pdf}
     \caption{Latency in milliseconds over number of clients}
+    \label{fig:latency}
 \end{figure}
 \begin{figure}[h!]
     \includegraphics[width=\textwidth]{throughputgraph.pdf}
     \caption{Throughput in requests per second over number of clients}
+    \label{fig:throughput}
 \end{figure}
 
 % Plot with latency over clients
