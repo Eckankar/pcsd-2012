@@ -24,7 +24,7 @@ namespace LotsOfClients {
             client.Reset();
             client.Init(TEST_FILE);
 
-            StreamWriter sw = new StreamWriter(@"C:\Users\Sebastian\Dropbox\Studie\Kurser\Datalogi\PCSD\Assignments\1\tex\lots-of-clients_100reqs_zipf0.5.txt", false);
+            StreamWriter sw = new StreamWriter(@"C:\Users\jacob\lots-of-clients_100reqs_zipf0.5.txt", false);
 
             for (int num = 1; num <= 25; num++) {
                 sw.WriteLine("== {0} simultaneous workers ==", num);

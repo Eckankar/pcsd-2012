@@ -192,8 +192,9 @@ Locking is done globally on the entire dictionary on each operation.
 
 
 % Free-space management
-The KeyValueBase does not support delete operations. Therefore no
-free-space management is needed.
+The KeyValueBase does not support delete operations. Therefore only very simple
+free-space management is needed, keeping an offset counter for the next free byte
+in the file updated on every write.
 
 \subsection{Question 3}
 % How did 
@@ -294,7 +295,7 @@ is simply insufficient.
 
 \subsection{Question 9}
 {\tt atomicScan} is simply implemented by wrapping the {\tt Scan} function,
-using the same lock as the other functions use.
+using an totally ordered locking sequence on the keys.
 
 {\tt bulkPut} is implemented by taking the lock at the start of insertion, as
 well as locking the single elements (protection from scans), and releasing only

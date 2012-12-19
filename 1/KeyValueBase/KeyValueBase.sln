@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyValueBase", "KeyValueBase\KeyValueBase.csproj", "{29CFD570-95EF-4833-9999-A8AF28B4CC7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyValueBaseClient", "KeyValueBaseClient\KeyValueBaseClient.csproj", "{C8044BFF-BE40-432C-BC9B-5CB13F8EFFBC}"
