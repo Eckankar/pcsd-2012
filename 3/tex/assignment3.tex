@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Principles of Computer System Design\\Assignment 3}
+\author{Jacob Wejendorp}
+
+\begin{document}
+\maketitle
+\section{Theory}
+\subsection{Question 1, Communication abstractions}
+  \subsubsection{Synchronous communication with async primitives}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+  \State $handle \leftarrow bufferSend(data)$
+    \Comment{Add to send buffer and get wait handle}
+  \State$t \leftarrow$ {\tt currentTime}
+ \While{! handle.isReceived()}
+    \If{$t -  {\tt currentTime} > lim$}
+      \Return Timeout
+    \EndIf
+  \State Sleep()
+ \EndWhile
+
+\State \Return{Ack}
+
+\end{algorithmic}
+	\caption{SyncSend by BusyWait for Ack}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\begin{algorithmic}
+ \State$t \leftarrow$ {\tt currentTime}
+ \While{bufferRecv() is empty}
+    \Comment{Check recv buffer}
+    \If{$t -  {\tt currentTime} > lim$}
+      \Return Timeout
+    \Else
+      \State Sleep()
+    \EndIf
+
+ \EndWhile
+
+\State \Return{Data}
+
+\end{algorithmic}
+	\caption{SyncRecv by BusyWait for Data}
+\end{algorithm}
+
+
+\subsubsection{Asynchronous communication via sync primitives}
+If threads are allowed, the simple answer is to defer the work to a worker thread via a buffer.
+The transient part is "ensured" by allowing the requests to timeout without retries.
+
+\subsubsection{Persistent async comms via RPCs}
+
+The api would be a message queueing system, allowing the processes to "check their mailboxes" at different times.
+This could be done by using Message-Oriented Middleware, giiving the APi the methods
+\begin{itemize}
+\item Subscribe
+\item Publish
+\end{itemize}
+The MOM instance would then work as a buffer for two communicating processes.
+Subscription could be done via polling or via an open socket on the client.
+
+
+\subsection{Question 3: Reliability}
+
+\begin{enumerate}
+  \item $(1-p)^2$ where $p$ is the probability that a single link fails.
+  \item This would require two links to fail, and thus the chance is $1-p^2$.
+  \item The difference in reliability is then $|(1-0.000001)^2 - (1-0.0001^2)| = 1.99 \times 10^-6$ in favor of the fully connected network.
+\end{enumerate}
+
+
+\section{Progamming Task}
+
+\subsection{Question 1: KeyValueBaseMaster}
+% Describe what you had to change
+In our original implementation everything was collected in a single file. The new interfaces encouraged a clear division of responsibilites.
+We have chosen to build on the simpler version of the service from assignment 1.
+The master is dependent on the Write operations defined in {\tt IKeyValueBaseMaster}, so a dedicated Master implementation is made by
+moving write operations into {\tt KeyValueBaseMasterImpl} and read operations into {\tt KeyValueBaseReplicaImpl}.
+The master connects to the Slaves after configuration by configuring the replicator. In short, partitioning of functionalities and adding the replicator to the master.
+
+\subsection{Question 2: KeyValueBaseSlave}
+The {\tt KeyValueBaseSlave} depends on the {\tt KeyValueBaseReplicaImpl}, and the {\tt IKeyValueBaseSlave} interface. The slave is easily implemented by
+implementing {\tt LogApply} in this class. This is done by reading out the values from the {\tt LogRecord} and applying the changes directly to the inherited {\tt IndexImpl},
+and updating the {\tt LastLSN} of the slave.
+The {\tt LastLSN} field also needs to be maintained in the master, which means adding some extra logic to the write methods from Question 1.
+
+\subsection{Question 3: KeyValueBaseProxy}
+The proxies enforce timestamp order by keeping a local {\tt LastLSN} field, and retrying requests on a different client when an older timestamp is received.
+Load balancing is done simply by randomization amongst the slaves, while only querying the master on writes or when all other timestamp checks fail.
+The proxies rely solely on Timeouts from {\tt KeyValueBaseMasterClient} and {\tt KeyValueBaseSlaveClient} to determine live nodes.
+
+
+
+
+\end{document}
+
